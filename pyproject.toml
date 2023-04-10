@@ -5,7 +5,7 @@ description = "Crossplatform-pack"
 authors = ["HsiangNianian <admin@jyunko.cn>"]
 dependencies = {
     # ...
-    "crossplatform-pack" = "^0.4.0"
+    "crossplatform-pack" = "^0.1.0"
 }
 
 [tool.poetry.dependencies]
