@@ -5,7 +5,7 @@ setup(
     version="0.1.0",
     description="My Awesome App",
     url="https://github.com/yourusername/myapp",
-    packages=find_packages(),
+    packages=find_packages(include=["app", "app.*"]),
     entry_points={"console_scripts": ["myapp=app.main:main"]},
     classifiers=[
         "Programming Language :: Python :: 3",
