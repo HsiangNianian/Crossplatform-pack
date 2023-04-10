@@ -57,7 +57,7 @@ jobs:
           release_name: Release ${{ github.ref }}
           body: |
             ## Changelog
-            See the [changelog](https://github.com/yourusername/myapp/releases) for details.
+            See the [changelog](https://github.com/HsiangNianian/Crossplatform-pack/releases) for details.
 
       - name: Upload Release Asset
         id: upload-release-asset
