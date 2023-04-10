@@ -3,9 +3,6 @@ name = "Crossplatform-pack"
 version = "0.1.0"
 description = "Crossplatform-pack"
 authors = ["HsiangNianian <admin@jyunko.cn>"]
-dependencies = {
-    
-}
 
 [tool.poetry.dependencies]
 python = "^3.6"
