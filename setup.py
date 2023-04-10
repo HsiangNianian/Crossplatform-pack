@@ -9,7 +9,7 @@ setup(
     ],
     entry_points={
         "console_scripts": [
-            "myapp = app.main:main"
+            "myapp = Crossplatform-pack.app.main:main"
         ]
     },
     license="MIT",
