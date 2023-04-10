@@ -1,8 +1,8 @@
 [tool.poetry]
-name = "myapp"
+name = "Crossplatform-pack"
 version = "0.1.0"
-description = "My Awesome App"
-authors = ["Your Name <your.email@example.com>"]
+description = "Crossplatform-pack"
+authors = ["HsiangNianian <admin@jyunko.cn>"]
 
 [tool.poetry.dependencies]
 python = "^3.6"
