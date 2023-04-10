@@ -4,7 +4,6 @@ version = "0.1.0"
 description = "Crossplatform-pack"
 authors = ["HsiangNianian <admin@jyunko.cn>"]
 dependencies = {
-    # ...
     "crossplatform-pack" = "^0.1.0"
 }
 
