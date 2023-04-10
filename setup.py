@@ -3,14 +3,24 @@ from setuptools import setup, find_packages
 setup(
     name="Crossplatform-pack",
     version="0.1.0",
-    description="Crossplatform-pack",
+    packages=find_packages(),
+    install_requires=[
+        # dependencies go here
+    ],
+    entry_points={
+        "console_scripts": [
+            "myapp = app.main:main"
+        ]
+    },
+    license="MIT",
+    long_description=open("Crossplatform-pack/app/README.md").read(),
+    long_description_content_type="text/markdown",
     url="https://github.com/HsiangNianian/Crossplatform-pack",
-    packages=find_packages(include=["app", "app.*"]),
-    entry_points={"console_scripts": ["Crossplatform-pack=app.main:main"]},
+    author="HsiangNianian",
+    author_email="your.email@example.com",
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
     ],
-    python_requires=">=3.6",
 )
