@@ -1,12 +1,12 @@
 from setuptools import setup, find_packages
 
 setup(
-    name="myapp",
+    name="Crossplatform-pack",
     version="0.1.0",
-    description="My Awesome App",
-    url="https://github.com/yourusername/myapp",
+    description="Crossplatform-pack",
+    url="https://github.com/HsiangNianian/Crossplatform-pack",
     packages=find_packages(include=["app", "app.*"]),
-    entry_points={"console_scripts": ["myapp=app.main:main"]},
+    entry_points={"console_scripts": ["Crossplatform-pack=app.main:main"]},
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",
