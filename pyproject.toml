@@ -6,7 +6,6 @@ authors = ["HsiangNianian <admin@jyunko.cn>"]
 
 [tool.poetry.dependencies]
 python = "^3.6"
-crossplatform-pack = "^0.1.0"
 
 [tool.poetry.dev-dependencies]
 
