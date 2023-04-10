@@ -1,0 +1,71 @@
+name: Build and Package
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build_and_package:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: "3.8"
+
+      - name: Install dependencies
+        run: |
+          pip install poetry
+          poetry install
+
+      - name: Build for Windows
+        if: runner.os == 'Windows'
+        run: |
+          poetry build --format=wheel
+          mkdir -p dist/windows
+          cp dist/*.whl dist/windows
+          echo "::set-env name=ASSET_PATH::dist/windows"
+
+      - name: Build for MacOS
+        if: runner.os == 'MacOS'
+        run: |
+          poetry build --format=wheel
+          mkdir -p dist/macos
+          cp dist/*.whl dist/macos
+          echo "::set-env name=ASSET_PATH::dist/macos"
+
+      - name: Build for Linux
+        if: runner.os == 'Linux'
+        run: |
+          poetry build --format=wheel
+          mkdir -p dist/linux
+          cp dist/*.whl dist/linux
+          echo "::set-env name=ASSET_PATH::dist/linux"
+
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
+          body: |
+            ## Changelog
+            See the [changelog](https://github.com/yourusername/myapp/releases) for details.
+
+      - name: Upload Release Asset
+        id: upload-release-asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ${{ env.ASSET_PATH }}/*
+          asset_name: myapp-${{ matrix.os }}.whl
+          asset_content_type: application/octet-stream
